@@ -23,6 +23,22 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.Usuario)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Usuario)
+            @Html.ValidationMessageFor(model => model.Usuario)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.Biografia)
         </div>
         <div class="editor-field">
