@@ -1,14 +1,54 @@
-﻿@model IEnumerable<ProyectoFinal.Models.Blog>
+﻿@model IEnumerable<MvcApplication1.Models.Blog>
+
 @{
     ViewBag.Title = "Index";
 }
-@foreach (var item in Model) {
-    <div>
-    <h3>@Html.DisplayNameFor(model => model.Nombre)</h3>    
-            @Html.DisplayFor(modelItem => item.Nombre)
 
-    <h3>@Html.DisplayNameFor(model => model.Informacion)</h3>     
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="box1">
+<table>
+    <tr>
+        <th>
+            <h3>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </h3>            
+        </th>
+        <th>
+             <h3>
+            @Html.DisplayNameFor(model => model.Informacion)
+             </h3> 
+        </th>
+        <th>
+            <h3>
+            @Html.DisplayNameFor(model => model.Fecha)
+            </h3> 
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Informacion)
-    </div>
-    
-}  
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |            
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }) |   
+            @Html.ActionLink("Comentar", "Entrada", new { id=item.Id })       
+        </td>
+    </tr>
+}
+
+</table>
+</div>
+

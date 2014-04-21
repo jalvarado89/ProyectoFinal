@@ -6,16 +6,14 @@ using System.Web;
 
 namespace MvcApplication1.Models
 {
-    public class Blogger
+    public class InfoBlog
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Nombre { get; set; }        
+        [StringLength(40)]
+        public string Nombre { get; set; }
         [Required]
-        public string Biografia { get; set; }
-        [Required]
-        public string RedesSociales { get; set; }
-
+        public string Info { get; set; }
     }
 }

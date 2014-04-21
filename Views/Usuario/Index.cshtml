@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcApplication1.Models.Blogger>
+﻿@model IEnumerable<MvcApplication1.Models.Usuario>
 
 @{
     ViewBag.Title = "Index";
@@ -12,13 +12,10 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.User)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Biografia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RedesSociales)
+            @Html.DisplayNameFor(model => model.Password)
         </th>
         <th></th>
     </tr>
@@ -26,13 +23,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
+            @Html.DisplayFor(modelItem => item.User)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Biografia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RedesSociales)
+            @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

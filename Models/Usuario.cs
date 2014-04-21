@@ -6,16 +6,16 @@ using System.Web;
 
 namespace MvcApplication1.Models
 {
-    public class Blogger
+    public class Usuario
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Nombre { get; set; }        
+        [StringLength(40)]
+        public string User { get; set; }
         [Required]
-        public string Biografia { get; set; }
-        [Required]
-        public string RedesSociales { get; set; }
-
+        [StringLength(40)]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
     }
 }

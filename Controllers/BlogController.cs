@@ -5,9 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoFinal.Models;
+using MvcApplication1.Models;
 
-namespace ProyectoFinal.Controllers
+namespace MvcApplication1.Controllers
 {
     public class BlogController : Controller
     {
@@ -19,6 +19,16 @@ namespace ProyectoFinal.Controllers
         public ActionResult Index()
         {
             return View(db.Blog.ToList());
+        }
+
+        public ActionResult Entrada(int id = 0)
+        {
+            Blog blog = db.Blog.Find(id);
+            if (blog == null)
+            {
+                return HttpNotFound();
+            }
+            return View(blog);
         }
 
         //

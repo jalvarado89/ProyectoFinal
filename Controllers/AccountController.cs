@@ -8,15 +8,27 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using ProyectoFinal.Filters;
-using ProyectoFinal.Models;
+using MvcApplication1.Filters;
+using MvcApplication1.Models;
+using MvcApplication1.Models;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace ProyectoFinal.Controllers
+namespace MvcApplication1.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+
+        public static string EncodePassword(string originalPassword)
+        {
+            SHA1 sha1 = new SHA1CryptoServiceProvider();             
+            byte[] inputBytes = (new UnicodeEncoding()).GetBytes(originalPassword);
+            byte[] hash = sha1.ComputeHash(inputBytes);
+            return Convert.ToBase64String(hash);
+        }
+
         //
         // GET: /Account/Login
 
@@ -29,17 +41,21 @@ namespace ProyectoFinal.Controllers
 
         //
         // POST: /Account/Login
-
+        private BlogContext db = new BlogContext();
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
-        {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+        {           
+            foreach (var item in db.Usuarios)
             {
-                return RedirectToLocal(returnUrl);
+                string password = EncodePassword(model.Password);
+                if ((item.User == model.UserName) && (item.Password == password))
+                {                    
+                    return Redirect("/Blog/index");                    
+                }
             }
-
+                        
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
             return View(model);
@@ -54,7 +70,7 @@ namespace ProyectoFinal.Controllers
         {
             WebSecurity.Logout();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Blog");
         }
 
         //
@@ -81,7 +97,7 @@ namespace ProyectoFinal.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Blog");
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -337,7 +353,7 @@ namespace ProyectoFinal.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Blog");
             }
         }
 

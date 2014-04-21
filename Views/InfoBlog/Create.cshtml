@@ -1,4 +1,4 @@
-﻿@model MvcApplication1.Models.Blogger
+﻿@model MvcApplication1.Models.InfoBlog
 
 @{
     ViewBag.Title = "Create";
@@ -10,7 +10,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Blogger</legend>
+        <legend>InfoBlog</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Nombre)
@@ -21,19 +21,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Biografia)
+            @Html.LabelFor(model => model.Info)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Biografia)
-            @Html.ValidationMessageFor(model => model.Biografia)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.RedesSociales)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.RedesSociales)
-            @Html.ValidationMessageFor(model => model.RedesSociales)
+            @Html.EditorFor(model => model.Info)
+            @Html.ValidationMessageFor(model => model.Info)
         </div>
 
         <p>

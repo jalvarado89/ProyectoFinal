@@ -1,4 +1,4 @@
-﻿@model ProyectoFinal.Models.Blogger
+﻿@model MvcApplication1.Models.Blogger
 
 @{
     ViewBag.Title = "Edit";
@@ -20,22 +20,6 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Nombre)
             @Html.ValidationMessageFor(model => model.Nombre)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Usuario)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Usuario)
-            @Html.ValidationMessageFor(model => model.Usuario)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
         </div>
 
         <div class="editor-label">

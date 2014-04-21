@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using ProyectoFinal.Models;
+using MvcApplication1.Models;
 
-namespace ProyectoFinal
+namespace MvcApplication1
 {
     public static class AuthConfig
     {
@@ -26,7 +26,7 @@ namespace ProyectoFinal
             //    appId: "",
             //    appSecret: "");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterGoogleClient();
         }
     }
 }

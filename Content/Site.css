@@ -1,16 +1,4 @@
-﻿#myCarousel .nav a small {
-    display:block;
-}
-
-#myCarousel .nav {
-	background:#eee;
-}
-
-#myCarousel .nav a {
-    border-radius:0px;
-}
-
-html {
+﻿html {
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;

@@ -1,4 +1,4 @@
-﻿@model ProyectoFinal.Models.Entradas
+﻿@model MvcApplication1.Models.Entradas
 
 @{
     ViewBag.Title = "Details";
@@ -10,10 +10,10 @@
     <legend>Entradas</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nombre)
+         @Html.DisplayNameFor(model => model.Titulo)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Nombre)
+        @Html.DisplayFor(model => model.Titulo)
     </div>
 
     <div class="display-label">
@@ -28,6 +28,20 @@
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Comentario)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Enable)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Enable)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdBlog)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdBlog)
     </div>
 </fieldset>
 <p>

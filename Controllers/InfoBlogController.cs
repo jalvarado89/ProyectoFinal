@@ -6,36 +6,37 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcApplication1.Models;
+using MvcApplication1.Models;
 
 namespace MvcApplication1.Controllers
 {
-    public class EntradasController : Controller
+    public class InfoBlogController : Controller
     {
         private BlogContext db = new BlogContext();
 
         //
-        // GET: /Entradas/
+        // GET: /InfoBlog/
 
         public ActionResult Index()
         {
-            return View(db.Entrada.ToList());
+            return View(db.InfoBlogs.ToList());
         }
 
         //
-        // GET: /Entradas/Details/5
+        // GET: /InfoBlog/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Entradas entradas = db.Entrada.Find(id);
-            if (entradas == null)
+            InfoBlog infoblog = db.InfoBlogs.Find(id);
+            if (infoblog == null)
             {
                 return HttpNotFound();
             }
-            return View(entradas);
+            return View(infoblog);
         }
 
         //
-        // GET: /Entradas/Create
+        // GET: /InfoBlog/Create
 
         public ActionResult Create()
         {
@@ -43,70 +44,70 @@ namespace MvcApplication1.Controllers
         }
 
         //
-        // POST: /Entradas/Create
+        // POST: /InfoBlog/Create
 
         [HttpPost]
-        public ActionResult Create(Entradas entradas)
+        public ActionResult Create(InfoBlog infoblog)
         {
             if (ModelState.IsValid)
             {
-                db.Entrada.Add(entradas);
+                db.InfoBlogs.Add(infoblog);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(entradas);
+            return View(infoblog);
         }
 
         //
-        // GET: /Entradas/Edit/5
+        // GET: /InfoBlog/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Entradas entradas = db.Entrada.Find(id);
-            if (entradas == null)
+            InfoBlog infoblog = db.InfoBlogs.Find(id);
+            if (infoblog == null)
             {
                 return HttpNotFound();
             }
-            return View(entradas);
+            return View(infoblog);
         }
 
         //
-        // POST: /Entradas/Edit/5
+        // POST: /InfoBlog/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Entradas entradas)
+        public ActionResult Edit(InfoBlog infoblog)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(entradas).State = EntityState.Modified;
+                db.Entry(infoblog).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(entradas);
+            return View(infoblog);
         }
 
         //
-        // GET: /Entradas/Delete/5
+        // GET: /InfoBlog/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Entradas entradas = db.Entrada.Find(id);
-            if (entradas == null)
+            InfoBlog infoblog = db.InfoBlogs.Find(id);
+            if (infoblog == null)
             {
                 return HttpNotFound();
             }
-            return View(entradas);
+            return View(infoblog);
         }
 
         //
-        // POST: /Entradas/Delete/5
+        // POST: /InfoBlog/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Entradas entradas = db.Entrada.Find(id);
-            db.Entrada.Remove(entradas);
+            InfoBlog infoblog = db.InfoBlogs.Find(id);
+            db.InfoBlogs.Remove(infoblog);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

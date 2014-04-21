@@ -5,9 +5,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ProyectoFinal.Models;
+using MvcApplication1.Models;
 
-namespace ProyectoFinal.Controllers
+namespace MvcApplication1.Controllers
 {
     public class BloggerController : Controller
     {

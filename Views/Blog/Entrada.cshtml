@@ -1,0 +1,23 @@
+﻿@model MvcApplication1.Models.Blog
+
+@{
+    ViewBag.Title = "Blog";
+}
+<h2>Entradas</h2>
+<fieldset>    
+    <div id="box1">
+        <h2>
+            @Html.DisplayFor(modelItem => Model.Nombre)
+        </h2>
+        <img class="left" src="http://www.frt.utn.edu.ar/tecnoweb/imagenes/image/ccfc/prograweb.png" width="180" height="220" alt="" />
+        <p>
+            @Html.DisplayFor(modelItem => Model.Informacion)
+        </p>
+        <div id="footer">@Html.DisplayFor(modelItem => Model.Fecha) </div>
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Agregar Comentario", "Create", "Entradas", new { id=Model.Id }) |
+    @Html.ActionLink("Ver Comentarios", "DetalleComentario", new { id=Model.Id })
+
+</p>

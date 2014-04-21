@@ -1,4 +1,4 @@
-﻿@model MvcApplication1.Models.Blog
+﻿@model MvcApplication1.Models.InfoBlog
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <fieldset>
-    <legend>Blog</legend>
+    <legend>InfoBlog</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Nombre)
@@ -17,17 +17,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Informacion)
+         @Html.DisplayNameFor(model => model.Info)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Informacion)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fecha)
+        @Html.DisplayFor(model => model.Info)
     </div>
 </fieldset>
 <p>

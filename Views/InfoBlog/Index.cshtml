@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcApplication1.Models.Blogger>
+﻿@model IEnumerable<MvcApplication1.Models.InfoBlog>
 
 @{
     ViewBag.Title = "Index";
@@ -15,10 +15,7 @@
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Biografia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RedesSociales)
+            @Html.DisplayNameFor(model => model.Info)
         </th>
         <th></th>
     </tr>
@@ -29,10 +26,7 @@
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Biografia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RedesSociales)
+            @Html.DisplayFor(modelItem => item.Info)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

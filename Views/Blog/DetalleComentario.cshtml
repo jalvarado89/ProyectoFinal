@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<MvcApplication1.Models.Entradas>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Comentario";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2></h2>
 <table>
     <tr>
         <th>
@@ -19,12 +15,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Comentario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Enable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdBlog)
         </th>
         <th></th>
     </tr>
@@ -40,17 +30,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.Comentario)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Enable)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdBlog)
-        </td>
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+        </td>*@
     </tr>
 }
 
